@@ -1,0 +1,35 @@
+no 1 : 
+Kesalahan kode tersebut adalah karena useState dipanggil di dalam if. 
+Padahal, Hooks tidak boleh dipanggil di dalam kondisi (seperti if). 
+Jadi useState harus di tulis di bagian atas komponen supaya urutan pemanggilannya 
+tetap sama setiap kali komponen melakukan render. 
+
+no 2 : 
+Penyebab layar tidak berubah adalah karena menggunakan item.push(baru)
+untuk menambahkan data langsung ke array state. React bisa saja menganggap
+state tidak berubah karena arraynya masih menggunakan referensi yang sama.
+Maka dari itu, sebaiknya membuat array baru : setItems((prev) => [...prev, itemBaru]);
+supaya react bisa mendeteksi perubahan dan memperbarui tampilannya. 
+
+no 3: 
+useEffect(() => { ... });->akan dijalankan setiap kali komponen melakukan render
+useEffect(() => { ... }, []);->hanya dijalankan saat komponen pertama kali ditampilkan
+useEffect(() => { ... }, [kota]);->dijalankan saat komponen pertama kali di tampilkan dan ketika
+nilai kota berubah. 
+Clean up dijalankan pada 2 kesempatan : tepat sebelum effect dijalankan ulang
+dan pada saat komponen dilepas dari layar 
+
+no 4: 
+State keyword sebaiknya diletakkan dikomponen parent yang menaungi filterbar 
+dan daftarmenu. Dengan begitu, nilai pencatian bisa dikirimkan ke daftarmenu,
+sedangkan fungsi untuk mengubah pencarian dikirim ke filterbar. Jadi yang
+dikirim dari filterbar ke parent bukan statenya secara langsung, melainkan
+nilai pencarian melalui pemanggilan fungsi 
+
+no 5 : 
+Controlled component sendiri yaitu input yang nilainya diatur oleh state
+React. Satu fungsi handleChange bisa digunakan untuk beberapa input 
+sekaligus dengan atribut name dan e.target.name untuk mengetahui input 
+mana yang berubah. Kemudian, e.target.value digunakan untuk mengambil 
+nilai baru dari input tersebut dan memperbarui nilai yang sesuai di 
+dalam objek state tanpa harus membuat fungsi berbeda untuk setiap inputnya. 

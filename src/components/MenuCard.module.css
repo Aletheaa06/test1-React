@@ -1,0 +1,51 @@
+
+.kartu {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    transition: 0.2s;
+}
+
+.kartu:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px #00000018;
+}
+
+.habis {
+    background: #fff0f0;
+    border-radius: 8px;
+    border-color: #e57373;
+}
+
+.habisBadge {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 4px;
+    border-radius: 12px;
+    background: #fee2e2;
+    color: #dc2626;
+    font-size: 12px;
+}
+.kartu h3 {
+    margin-top: 0;
+}
+
+.kartu button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #4f46e5;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.kartu button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    border: none;
+    border-radius: 8px;
+}
